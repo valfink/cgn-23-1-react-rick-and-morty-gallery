@@ -1,5 +1,6 @@
 import CharacterCard from "./CharacterCard";
 import {Character} from "../model/Character";
+import "./Gallery.css";
 
 type GalleryProps = {
     characters: Character[]

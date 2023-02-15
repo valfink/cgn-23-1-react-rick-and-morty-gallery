@@ -1,4 +1,5 @@
 import {Character} from "../model/Character";
+import "./CharacterCard.css";
 
 
 type CharacterCardProps = {
