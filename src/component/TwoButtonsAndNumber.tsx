@@ -1,3 +1,5 @@
+import React, {BaseSyntheticEvent} from "react";
+
 type TwoButtonsAndNumberProps = {
     currentNumber: number,
     increaseCurrentNumber: () => void,
@@ -5,9 +7,18 @@ type TwoButtonsAndNumberProps = {
 }
 
 export default function TwoButtonsAndNumber(props: TwoButtonsAndNumberProps) {
+    function handleButtonClick(e: BaseSyntheticEvent) {
+        console.log(e);
+        console.log(e.target.dataset);
+        if (e.target.dataset.action === "-") {
+            props.decreaseCurrentNumber();
+        } else {
+            props.increaseCurrentNumber();
+        }
+    }
     return (
         <>
-            <button onClick={props.decreaseCurrentNumber}>-</button> {props.currentNumber} <button onClick={props.increaseCurrentNumber}>+</button>
+            <button data-action={"-"} onClick={handleButtonClick}>-</button> {props.currentNumber} <button data-action={"+"} onClick={handleButtonClick}>+</button>
         </>
     );
 }

@@ -8,7 +8,7 @@ import TwoButtonsAndNumber from "./component/TwoButtonsAndNumber";
 function App() {
     const characters: Character[] = jsonCharacters;
     const [showFrom, setShowFrom] = useState<number>(0);
-    const [showUntil, setShowUntil] = useState<number>(10);
+    const [showUntil, setShowUntil] = useState<number>(40);
   return (
     <div className="App">
         <h1>The Rick and Morty Characters Gallery</h1>
