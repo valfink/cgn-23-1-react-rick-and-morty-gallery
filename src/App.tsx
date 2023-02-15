@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
 import Gallery from "./Gallery";
+import {Character} from "./Character";
 
 function App() {
-    const characters = require('./characters.json');
+    const characters: Character[] = require('./characters.json');
   return (
     <div className="App">
         <h1>The Rick and Morty Characters Gallery</h1>

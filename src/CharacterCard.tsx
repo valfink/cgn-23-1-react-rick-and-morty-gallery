@@ -1,4 +1,4 @@
-import {Character} from "./Gallery";
+import {Character} from "./Character";
 
 
 type CharacterCardProps = {
