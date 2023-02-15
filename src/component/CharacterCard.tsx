@@ -1,4 +1,4 @@
-import {Character} from "./Character";
+import {Character} from "../model/Character";
 
 
 type CharacterCardProps = {

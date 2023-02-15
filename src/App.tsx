@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Gallery from "./Gallery";
-import {Character} from "./Character";
+import Gallery from "./component/Gallery";
+import {Character} from "./model/Character";
 
 function App() {
     const characters: Character[] = require('./characters.json');
