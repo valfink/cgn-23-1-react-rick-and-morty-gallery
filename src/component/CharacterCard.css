@@ -3,11 +3,15 @@
     border-radius: 5px;
     padding: 5px;
     background-color: rgba(107,208,220);
+    width: 350px;
+    height: 450px;
 }
 
 .card img {
     border-radius: 50%;
     padding: 0 20px;
+    width: 300px;
+    height: 300px;
 }
 
 .card.notAlive {

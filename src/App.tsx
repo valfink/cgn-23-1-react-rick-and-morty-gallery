@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
         <h1>The Rick and Morty Characters Gallery</h1>
-        Show from:
+        {/*Show from:
         <TwoButtonsAndNumber
             currentNumber={showFrom}
             increaseCurrentNumber={() => setShowFrom(Math.min(showFrom + 1, showUntil - 1))}
@@ -23,7 +23,7 @@ function App() {
             currentNumber={showUntil}
             increaseCurrentNumber={() => setShowUntil(Math.min(showUntil + 1, characters.length))}
             decreaseCurrentNumber={() => setShowUntil(Math.max(showUntil - 1, showFrom + 1))}
-        />
+        />*/}
       <Gallery characters={characters}  startingAt={showFrom} stoppingAt={showUntil}/>
     </div>
   );

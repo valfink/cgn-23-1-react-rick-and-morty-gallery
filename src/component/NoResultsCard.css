@@ -1,0 +1,17 @@
+.card.empty {
+    width: 85%;
+    background-color: azure;
+}
+.card.empty img {
+    animation: spinning-morty infinite 5s linear;
+}
+@keyframes spinning-morty {
+    0% {
+        rotate: 0deg;
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        rotate: 360deg;
+        filter: hue-rotate(360deg);
+    }
+}
