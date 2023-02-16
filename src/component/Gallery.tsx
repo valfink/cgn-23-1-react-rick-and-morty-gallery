@@ -6,9 +6,7 @@ import Searchbar from "./Searchbar";
 import NoResultsCard from "./NoResultsCard";
 
 type GalleryProps = {
-    characters: Character[],
-    startingAt: number,
-    stoppingAt: number
+    characters: Character[]
 }
 
 export default function Gallery(props: GalleryProps) {
@@ -20,7 +18,6 @@ export default function Gallery(props: GalleryProps) {
 
     const characterCards = props.characters
         .filter(c => c.name.toLowerCase().includes(searchInName.toLowerCase()))
-        .slice(props.startingAt, props.stoppingAt)
         .map(character => <CharacterCard character={character}/>);
 
     return (
