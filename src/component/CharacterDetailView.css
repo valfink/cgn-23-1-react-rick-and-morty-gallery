@@ -1,4 +1,10 @@
-.character-detail-view dt, .character-detail-view dl {
+.character-detail-view dl {
+    width: 50%;
+    margin: auto;
+}
+.character-detail-view dt, .character-detail-view dd {
     text-align: initial;
-    margin-left: 20px;
+}
+.character-detail-view img {
+    border-radius: 25%;
 }
