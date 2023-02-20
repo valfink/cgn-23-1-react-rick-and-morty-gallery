@@ -14,6 +14,7 @@ function App() {
         const abortController = new AbortController();
         fetchAndSetNewCharacters(abortController);
         return () => {abortController.abort();}
+        // FIXME: Dependency Array
     }, []);
 
     function fetchAndSetNewCharacters(abortController: AbortController) {
@@ -30,7 +31,10 @@ function App() {
     }
 
     function onScroll() {
+        // console.log("Scroll");
+        // console.log(event.target.scrollTop);
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+            console.log("Load new data")
             const abortController = new AbortController();
             fetchAndSetNewCharacters(abortController);
         }
@@ -39,7 +43,7 @@ function App() {
     useEffect(() => {
         window.addEventListener('scroll', onScroll)
         return () => window.removeEventListener('scroll', onScroll)
-    }, [])
+    }, [nextPageToFetch])
 
 
     return (
