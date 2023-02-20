@@ -18,7 +18,7 @@ export default function Gallery(props: GalleryProps) {
 
     const characterCards = props.characters
         .filter(c => c.name.toLowerCase().includes(searchInName.toLowerCase()))
-        .map(character => <CharacterCard character={character}/>);
+        .map(character => <CharacterCard key={"character-" + character.id} character={character}/>);
 
     return (
         <>

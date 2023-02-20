@@ -1,0 +1,4 @@
+.character-detail-view dt, .character-detail-view dl {
+    text-align: initial;
+    margin-left: 20px;
+}
