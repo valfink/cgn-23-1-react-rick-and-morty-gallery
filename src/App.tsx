@@ -9,25 +9,30 @@ import CharacterDetailView from "./component/CharacterDetailView";
 function App() {
     const [characters, setCharacters] = useState<Character[]>([]);
     const [nextPageToFetch, setNextPageToFetch] = useState<string>("https://rickandmortyapi.com/api/character");
-    const [fetchNewData, setFetchNewData] = useState<boolean>(true);
 
     useEffect(() => {
-        if (fetchNewData) {
-            console.log("Fetching...");
-            axios.get(nextPageToFetch)
-                .then(response => {
-                    setCharacters(c => [...c, ...response.data.results]);
-                    setNextPageToFetch(response.data.info.next);
-                })
-                .catch(err => console.error(err));
-            console.log("Done 🤗");
-            setFetchNewData(false);
-        }
-    }, [fetchNewData, nextPageToFetch]);
+        const abortController = new AbortController();
+        fetchAndSetNewCharacters(abortController);
+        return () => {abortController.abort();}
+    }, []);
+
+    function fetchAndSetNewCharacters(abortController: AbortController) {
+        console.log("Fetching...");
+        console.log("URL: " + nextPageToFetch);
+        axios.get(nextPageToFetch, {signal: abortController.signal})
+            .then(response => {
+                setCharacters(c => [...c, ...response.data.results]);
+                setNextPageToFetch(response.data.info.next);
+                console.log("Next page to fetch: " + response.data.info.next);
+            })
+            .catch(err => console.error(err));
+        console.log("Done 🤗");
+    }
 
     function onScroll() {
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-            setFetchNewData(true);
+            const abortController = new AbortController();
+            fetchAndSetNewCharacters(abortController);
         }
     }
 
@@ -42,7 +47,7 @@ function App() {
             <h1>The Rick and Morty Characters Gallery</h1>
             <Routes>
                 <Route path={"/"} element={<Gallery characters={characters}/>}/>
-                <Route path={"/characters/:characterId"} element={<CharacterDetailView characters={characters} />} />
+                <Route path={"/characters/:characterId"} element={<CharacterDetailView characters={characters}/>}/>
             </Routes>
         </div>
     );
