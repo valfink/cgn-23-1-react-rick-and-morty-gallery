@@ -1,9 +1,10 @@
 import {Episode} from "../model/Episode";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {Character} from "../model/Character";
 import CharacterGallery from "./CharacterGallery";
 import axios from "axios";
 import {useEffect, useState} from "react";
+import NoResultsCard from "./NoResultsCard";
 
 type EpisodeDetailViewProps = {
     episodes: Episode[]
@@ -28,23 +29,34 @@ export default function EpisodeDetailView(props: EpisodeDetailViewProps) {
                     .catch(console.error);
             })
         }
-        return () => { abortController.abort(); }
+        return () => {
+            abortController.abort();
+        }
     }, [episode])
 
 
     return (
         <>
             {episode &&
-            <div className={"character-detail-view"}>
-                <h2>{episode.name}</h2>
-                <dl>
-                    <dt>Episode:</dt><dd>{episode.episode}</dd>
-                    <dt>Air Date:</dt><dd>{episode.air_date}</dd>
-                    <dt>Character Count:</dt><dd>{episode.characters.length}</dd>
-                </dl>
-                <CharacterGallery characters={relatedCharacters} />
-            </div>
+                <div className={"character-detail-view"}>
+                    <h2>{episode.name}</h2>
+                    <dl>
+                        <dt>Episode:</dt>
+                        <dd>{episode.episode}</dd>
+                        <dt>Air Date:</dt>
+                        <dd>{episode.air_date}</dd>
+                        <dt>Character Count:</dt>
+                        <dd>{episode.characters.length}</dd>
+                    </dl>
+                    <CharacterGallery characters={relatedCharacters}/>
+                </div>
             }
+            {!episode &&
+                <div className={"gallery"}>
+                    <NoResultsCard/>
+                </div>
+            }
+            <br/><Link to={"/episodes"}>Back to List</Link>
         </>
     );
 }

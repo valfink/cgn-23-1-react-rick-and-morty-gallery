@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {Episode} from "../model/Episode";
 import axios from "axios";
 import EpisodeGallery from "./EpisodeGallery";
+import NoResultsCard from "./NoResultsCard";
 
 type CharacterDetailViewProps = {
     characters: Character[]
@@ -47,6 +48,11 @@ export default function CharacterDetailView(props: CharacterDetailViewProps) {
                         <dt>Episode Count:</dt><dd>{character.episode.length}</dd>
                     </dl>
                     <EpisodeGallery episodes={relatedEpisodes} />
+                </div>
+            }
+            {!character &&
+                <div className={"gallery"}>
+                    <NoResultsCard/>
                 </div>
             }
             <br/><Link to={"/characters"}>Back to List</Link>
