@@ -46,7 +46,6 @@ export default function CharacterDetailView(props: CharacterDetailViewProps) {
                         <dt>URL:</dt><dd>{character.url}</dd>
                         <dt>Episode Count:</dt><dd>{character.episode.length}</dd>
                     </dl>
-                    <h3>Episodes</h3>
                     <EpisodeGallery episodes={relatedEpisodes} />
                 </div>
             }

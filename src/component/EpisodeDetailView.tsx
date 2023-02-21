@@ -42,7 +42,6 @@ export default function EpisodeDetailView(props: EpisodeDetailViewProps) {
                     <dt>Air Date:</dt><dd>{episode.air_date}</dd>
                     <dt>Character Count:</dt><dd>{episode.characters.length}</dd>
                 </dl>
-                <h3>Characters</h3>
                 <CharacterGallery characters={relatedCharacters} />
             </div>
             }
