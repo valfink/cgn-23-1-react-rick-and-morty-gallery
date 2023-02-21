@@ -4,6 +4,7 @@ import Gallery from "./component/Gallery";
 import {Route, Routes} from "react-router-dom";
 import CharacterDetailView from "./component/CharacterDetailView";
 import useCharacters from "./hooks/useCharacters";
+import Header from "./component/Header";
 
 function App() {
 
@@ -11,9 +12,9 @@ function App() {
 
     return (
         <div className="App">
-            <h1>The Rick and Morty Characters Gallery</h1>
+            <Header />
             <Routes>
-                <Route path={"/"} element={<Gallery characters={characters}/>}/>
+                <Route path={"/characters"} element={<Gallery characters={characters}/>}/>
                 <Route path={"/characters/:characterId"} element={<CharacterDetailView characters={characters}/>}/>
             </Routes>
         </div>
