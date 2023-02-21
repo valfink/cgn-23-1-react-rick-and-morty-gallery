@@ -22,6 +22,7 @@ export default function CharacterGallery(props: GalleryProps) {
 
     return (
         <>
+            <h2>Characters</h2>
             <Searchbar  passSearchText={handlePassSearchText}/>
             <div className="gallery">
                 {characterCards.length > 0 ? characterCards : <NoResultsCard />}

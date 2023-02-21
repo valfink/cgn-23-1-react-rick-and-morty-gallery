@@ -9,11 +9,14 @@ export default function EpisodeGallery(props: EpisodeGalleryProps) {
     // const {episodes} = useEpisodes();
 
     const episodeCards = props.episodes
-        .map(episode => <EpisodeCard key={"episode-" + episode.id} episode={episode} />)
+        .map(episode => <EpisodeCard key={"episode-" + episode.id} episode={episode}/>)
 
     return (
-        <div className={"gallery"}>
-            {episodeCards}
-        </div>
+        <>
+            <h2>Episodes</h2>
+            <div className={"gallery"}>
+                {episodeCards}
+            </div>
+        </>
     );
 }
