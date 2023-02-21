@@ -7,6 +7,7 @@ export default function useCharacters() {
     // const [nextPageToFetch, setNextPageToFetch] = useState<string>("https://rickandmortyapi.com/api/character");
 
     useEffect(() => {
+        // TODO: change loading behaviour! For now it loads everything even before visiting the character gallery
         function fetchNewCharacters(url: string, abortController: AbortController) {
             console.log("Fetching...");
             console.log("URL: " + url);
