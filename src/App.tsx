@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import Gallery from "./component/Gallery";
+import CharacterGallery from "./component/CharacterGallery";
 import {Route, Routes} from "react-router-dom";
 import CharacterDetailView from "./component/CharacterDetailView";
 import useCharacters from "./hooks/useCharacters";
 import Header from "./component/Header";
+import EpisodeGallery from "./component/EpisodeGallery";
 
 function App() {
 
@@ -14,8 +15,9 @@ function App() {
         <div className="App">
             <Header />
             <Routes>
-                <Route path={"/characters"} element={<Gallery characters={characters}/>}/>
+                <Route path={"/characters"} element={<CharacterGallery characters={characters}/>}/>
                 <Route path={"/characters/:characterId"} element={<CharacterDetailView characters={characters}/>}/>
+                <Route path={"/episodes"} element={<EpisodeGallery />}/>
             </Routes>
         </div>
     );

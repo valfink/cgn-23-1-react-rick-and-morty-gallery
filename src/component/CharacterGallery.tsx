@@ -1,6 +1,6 @@
 import CharacterCard from "./CharacterCard";
 import {Character} from "../model/Character";
-import "./Gallery.css";
+import "./CharacterGallery.css";
 import {useState} from "react";
 import Searchbar from "./Searchbar";
 import NoResultsCard from "./NoResultsCard";
@@ -9,7 +9,7 @@ type GalleryProps = {
     characters: Character[]
 }
 
-export default function Gallery(props: GalleryProps) {
+export default function CharacterGallery(props: GalleryProps) {
     const [searchInName, setSearchInName] = useState("");
 
     function handlePassSearchText(text: string): void {
