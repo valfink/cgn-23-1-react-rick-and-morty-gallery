@@ -1,5 +1,6 @@
 import {Episode} from "../model/Episode";
 import {Link} from "react-router-dom";
+import "./EpisodeCard.css";
 
 type EpisodeCardProps = {
     episode: Episode
@@ -7,7 +8,7 @@ type EpisodeCardProps = {
 
 export default function EpisodeCard(props: EpisodeCardProps) {
     return (
-        <div className={`card`}>
+        <div className={"card episode"}>
             <h2>{props.episode.name}</h2>
             <p>{props.episode.episode}</p>
             <p>Air Date: {props.episode.air_date}</p>
