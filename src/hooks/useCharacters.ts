@@ -14,10 +14,10 @@ export default function useCharacters() {
             axios.get(url, {signal: abortController.signal})
                 .then(response => {
                     setCharacters(c => [...c, ...response.data.results]);
-                    if (response.data.info.next) {
-                        console.log("Next page to fetch: " + response.data.info.next);
-                        fetchNewCharacters(response.data.info.next, abortController);
-                    }
+                    // if (response.data.info.next) {
+                    //     console.log("Next page to fetch: " + response.data.info.next);
+                    //     fetchNewCharacters(response.data.info.next, abortController);
+                    // }
                 })
                 .catch(console.error);
             console.log("Done 🤗");
