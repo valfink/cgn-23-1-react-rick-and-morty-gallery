@@ -7,6 +7,7 @@ import useCharacters from "./hooks/useCharacters";
 import Header from "./component/Header";
 import EpisodeGallery from "./component/EpisodeGallery";
 import useEpisodes from "./hooks/useEpisodes";
+import EpisodeDetailView from "./component/EpisodeDetailView";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path={"/characters"} element={<CharacterGallery characters={characters}/>}/>
                 <Route path={"/characters/:characterId"} element={<CharacterDetailView characters={characters}/>}/>
                 <Route path={"/episodes"} element={<EpisodeGallery episodes={episodes} />}/>
+                <Route path={"/episodes/:episodeId"} element={<EpisodeDetailView episodes={episodes} />}/>
             </Routes>
         </div>
     );
